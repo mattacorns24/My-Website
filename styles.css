@@ -1,0 +1,131 @@
+/* ===== Baseline — kept minimal; polish pass via Claude design later ===== */
+
+:root {
+  --color-bg: #ffffff;
+  --color-fg: #1a1a1a;
+  --color-muted: #666666;
+  --color-accent: #2563eb;
+  --color-border: #e5e7eb;
+  --color-card: #fafafa;
+
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  --max-width: 960px;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-fg);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== Header / nav ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 10;
+}
+.nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__brand { font-weight: 700; color: var(--color-fg); }
+.nav__links {
+  list-style: none;
+  display: flex;
+  gap: var(--space-lg);
+  margin: 0;
+  padding: 0;
+}
+.nav__links a { color: var(--color-fg); }
+
+/* ===== Sections ===== */
+main { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); }
+section { padding: var(--space-xl) 0; }
+.section__title { font-size: 1.75rem; margin-bottom: var(--space-lg); }
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero__name { font-size: clamp(2.5rem, 6vw, 4rem); margin: 0 0 var(--space-sm); }
+.hero__tagline { font-size: 1.25rem; color: var(--color-muted); margin: 0 0 var(--space-lg); }
+.hero__cta { font-weight: 600; }
+
+/* ===== About ===== */
+.about__text { max-width: 60ch; color: var(--color-fg); }
+
+/* ===== Projects ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}
+.card {
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.card__title { margin: 0; font-size: 1.2rem; }
+.card__desc { margin: 0; color: var(--color-muted); flex-grow: 1; }
+.card__tags { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-sm); }
+.card__tag {
+  font-size: 0.75rem;
+  background: #eef2ff;
+  color: var(--color-accent);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+.card__links { display: flex; gap: var(--space-md); margin-top: var(--space-sm); font-weight: 600; }
+.projects__empty { color: var(--color-muted); }
+
+/* ===== Footer ===== */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-xl);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  color: var(--color-muted);
+}
+.footer__links {
+  list-style: none;
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  padding: 0;
+  margin: 0 0 var(--space-md);
+}
+.footer__note { margin: 0; font-size: 0.875rem; }
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .nav__links { gap: var(--space-md); }
+  section { padding: var(--space-lg) 0; }
+}

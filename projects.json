@@ -1,0 +1,10 @@
+[
+  {
+    "name": "APM — Automated Portfolio Manager",
+    "description": "AI agent that runs daily cloud routines to research stocks, score conviction, manage risk, and place swing trades autonomously. Goal: beat the S&P 500. Paper-trades via Alpaca, live via Schwab; Streamlit dashboard for monitoring.",
+    "link": "",
+    "repo": "",
+    "tags": ["Python", "AI Agents", "Alpaca", "Schwab API", "Streamlit", "Finance"],
+    "image": ""
+  }
+]

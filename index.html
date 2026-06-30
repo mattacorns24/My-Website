@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matthew Akins — Projects</title>
+  <meta name="description" content="Personal project showcase of Matthew Akins." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="nav__brand" href="#home">MA</a>
+      <ul class="nav__links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <h1 class="hero__name">Matthew Akins</h1>
+      <p class="hero__tagline">I build things for the web. <!-- one-liner placeholder --></p>
+      <a class="hero__cta" href="#projects">See my work →</a>
+    </section>
+
+    <section id="about" class="about">
+      <h2 class="section__title">About</h2>
+      <p class="about__text">
+        <!-- About placeholder — replace with real bio. -->
+        Short intro about who you are, what you do, and what you care about.
+        Add a sentence or two on your background and interests.
+      </p>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2 class="section__title">Projects</h2>
+      <div id="project-grid" class="project-grid">
+        <!-- Cards injected by script.js from projects.json -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <ul class="footer__links">
+      <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:matt.acorns24@gmail.com">Email</a></li>
+    </ul>
+    <p class="footer__note">© <span id="year"></span> Matthew Akins</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
