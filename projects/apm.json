@@ -1,0 +1,39 @@
+{
+  "name": "APM — Automated Portfolio Manager",
+  "summary": "An AI agent that manages a stock portfolio end to end. It runs scheduled cloud routines that research stocks, score conviction, enforce risk limits, and place swing trades autonomously — with the goal of beating the S&P 500. It paper-trades through Alpaca and is built to flip to live trading on Schwab, all monitored from a Streamlit dashboard.",
+  "tags": ["Python", "AI Agents", "Alpaca", "Schwab API", "Streamlit", "SEC EDGAR", "Finance"],
+  "links": [],
+  "hero": "",
+  "parts": [
+    {
+      "title": "Daily research + conviction scoring",
+      "image": "images/apm/research.png",
+      "description": "Each pre-market run, a research routine reads catalysts, street sentiment, and sector momentum via web search and assigns every ticker a 1–10 conviction score. New ideas outside the approved universe are never auto-traded — they're sent to me on Discord for manual approval first."
+    },
+    {
+      "title": "Broker dispatch layer",
+      "image": "images/apm/broker.png",
+      "description": "A single dispatcher routes every order, quote, and position request based on a BROKER environment flag: Alpaca for the ~$100k paper account (current phase) or Schwab for the live ~$2–3k account (Phase 3). Both brokers expose the same command interface, so flipping environments needs no code changes."
+    },
+    {
+      "title": "Risk + position rules",
+      "image": "images/apm/risk.png",
+      "description": "Hard, percentage-based guardrails apply at any account size: max 10% per position, 75–80% deployed, a 20% cash floor, and roughly 8 positions max with at most 5 new routine trades per week. Every fill gets a 10% trailing stop; losers are cut at −7% and stops tighten as gains build. A config file is the single source of truth for caps, plus a kill switch."
+    },
+    {
+      "title": "Cloud routines + scheduling",
+      "image": "images/apm/routines.png",
+      "description": "Production runs as scheduled cloud routines on New York market hours: pre-market research, market-open, midday check, end-of-day summary, and a Friday weekly review. Each is a self-contained instruction set the agent executes on cron."
+    },
+    {
+      "title": "Streamlit dashboard",
+      "image": "images/apm/dashboard.png",
+      "description": "A local Streamlit app gives an at-a-glance view of open positions, entries, stops, and recent activity — the human-facing window into what the bot is doing without digging through logs."
+    },
+    {
+      "title": "Discord alerts as “Janet”",
+      "image": "images/apm/alerts.png",
+      "description": "Every routine sends a short, plain-English session overview over a Discord webhook — voiced as Janet from The Good Place — plus real-time trade fills and new-idea approval requests, so I always know what happened and what's waiting on me."
+    }
+  ]
+}

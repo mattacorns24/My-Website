@@ -16,18 +16,17 @@ function cardHtml(p) {
     .map((t) => `<span class="card__tag">${escapeHtml(t)}</span>`)
     .join("");
 
-  const links = [];
-  if (p.link) links.push(`<a href="${escapeHtml(p.link)}" target="_blank" rel="noopener">Live</a>`);
-  if (p.repo) links.push(`<a href="${escapeHtml(p.repo)}" target="_blank" rel="noopener">Code</a>`);
+  // Whole card links to its detail page (project.html?slug=...).
+  const href = `project.html?slug=${encodeURIComponent(p.slug || "")}`;
 
   return `
-    <article class="card">
+    <a class="card" href="${href}">
       ${p.image ? `<img class="card__image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" />` : ""}
       <h3 class="card__title">${escapeHtml(p.name || "Untitled")}</h3>
       <p class="card__desc">${escapeHtml(p.description || "")}</p>
       ${tags ? `<div class="card__tags">${tags}</div>` : ""}
-      ${links.length ? `<div class="card__links">${links.join("")}</div>` : ""}
-    </article>
+      <span class="card__more">View project →</span>
+    </a>
   `;
 }
 
